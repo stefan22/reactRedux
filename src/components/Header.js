@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => (
   <header>
+
     <h1>Expenses Report</h1>
     <h3>Create, add, edit and delete your job expenses</h3>
     <hr />

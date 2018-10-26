@@ -1,4 +1,4 @@
-import { CreateStore, combineReducers } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import expensesReducer from '../reducers/expensesReducer';
 import filtersReducer from '../reducers/filtersReducer';
 
