@@ -1,0 +1,32 @@
+h1, h2, h3 {
+   font-weight: normal;
+}
+
+h1 {
+   background-color: purple;
+   color: white;
+   margin:0;
+   padding:1em 0;
+}
+
+h1,h3 {
+   text-align: center;
+}
+
+hr {
+   margin-bottom: 1em;
+}
+
+header {
+   margin-bottom: 3em;
+   nav {
+      display:flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      a {
+         background-color: rgb(250, 225, 192);
+         padding:5px;
+      }
+
+   }//nav
+}//header
