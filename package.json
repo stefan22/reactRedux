@@ -32,5 +32,8 @@
     "validator": "8.0.0",
     "webpack": "3.1.0",
     "webpack-dev-server": "2.5.1"
+  },
+  "devDependencies": {
+    "react-redux": "^5.1.0"
   }
 }
