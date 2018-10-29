@@ -27,10 +27,14 @@ const state = store.getState();
 const visibleXpenses = getVisibleExpenses(state.expenses, state.filters);
 console.log('visible expenses: \n',visibleXpenses);
 
-
+const jsx = (
+   <Provider store={store}>
+      <AppRouter />
+   </Provider>
+);
 
 ReactDOM.render(
-   <AppRouter />,
+   jsx,
    document.getElementById('app')
 );
 
