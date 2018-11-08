@@ -1,6 +1,6 @@
 let translations,
     matchKey = 'Betslip.Hello kitty',
-objTran = window.fdjGamingWidgetTranslations = {
+    objTran = window.fdjGamingWidgetTranslations = {
    "Betslip. You have no bets at the moment.": "No tienes ninguna apuesta",
    "Betslip. Hello Guess": "Hola chico",
    "Betslip.Hello kitty":"test one two three"
