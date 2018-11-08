@@ -46,7 +46,8 @@ getObjProp = (op) => {
 
 getObjProp.call(objProps, 'translations');
 
-
+// -> translations:
+// -> test one two three
 
 
 
