@@ -1,4 +1,3 @@
-debugger;
 let translations,
     matchKey = 'Betslip.Hello kitty',
 objTran = window.fdjGamingWidgetTranslations = {
@@ -10,6 +9,7 @@ objTran = window.fdjGamingWidgetTranslations = {
 const objProps = {
    values: 'values',
    keys: 'keys',
+   translations: 'translations',
    fnValues: function() {
       return Object.values(objTran);
    },
@@ -32,9 +32,11 @@ getObjProp = (op) => {
    let tranKeys, tranValues;
    if(op == 'values') {
       tranValues = objProps.fnValues();
-      translations = findMatch(tranValues);
       return translations;
    } else if(op == 'keys') {
+      tranKeys = objProps.fnKeys();
+   }
+    else if(op == 'translations') {
       tranKeys = objProps.fnKeys();
       translations = findMatch(tranKeys);
       console.log(' translations: \n ' + translations);
@@ -42,7 +44,7 @@ getObjProp = (op) => {
    }
 };
 
-getObjProp.call(objProps, 'keys');
+getObjProp.call(objProps, 'translations');
 
 
 
