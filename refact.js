@@ -1,6 +1,6 @@
 let translations,
     matchKey = 'Betslip.Hello kitty',
-    objTran = window.fdjGamingWidgetTranslations = {
+objTran = window.fdjGamingWidgetTranslations = {
    "Betslip. You have no bets at the moment.": "No tienes ninguna apuesta",
    "Betslip. Hello Guess": "Hola chico",
    "Betslip.Hello kitty":"test one two three"
@@ -39,12 +39,13 @@ getObjProp = (op) => {
     else if(op == 'translations') {
       tranKeys = objProps.fnKeys();
       translations = findMatch(tranKeys);
-      console.log(' translations: \n ' + translations);
+      console.log(op + ' :\n ' + translations);
       return translations;
    }
 };
 
 getObjProp.call(objProps, 'translations');
+
 
 
 
