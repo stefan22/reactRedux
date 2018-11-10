@@ -463,14 +463,43 @@ https://www.youtube.com/watch?v=uO8OreL0Ml4
 
 ```
 
+```
+
+		// fetch expects two parameters:
+		
+		• an endpoint to the API, and an     
+		• optional object which can contain body and headers.
+
+
+
+			fetch('API_ENDPOINT', OBJECT)  
+			  .then(function(res) {
+			    return res.json();
+			   })
+			  .then(function(resJson) {
+			    return resJson;
+			   })
+			   
+			   
+			// object
+			var obj = {  
+			  method: 'POST',
+			  headers: {
+			    'Accept': 'application/json',
+			    'Content-Type': 'application/json',
+			    'Origin': '',
+			    'Host': 'api.producthunt.com'
+			  },
+			  body: JSON.stringify({
+			    'client_id': '(API KEY)',
+			    'client_secret': '(API SECRET)',
+			    'grant_type': 'client_credentials'
+			});
 
 
 
 
-
-
-
-
+```
 
 
 
