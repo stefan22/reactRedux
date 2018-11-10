@@ -151,3 +151,63 @@ Now we have this information and need to store it -  with a new Reducer
 
 
 ```
+
+
+
+
+```
+		let response = await fetch('https://xxxxxxxxx.auth0.com/userinfo', {
+			method: 'GET',
+			headers: {
+			  'Accept': 'application/json',
+			  'Content-Type': 'application/json',
+			  Authorization: 'Bearer ' + this.state.token.accessToken,
+			},
+		      });
+		      let responseJson = await response.json();
+		      if(response !== null) {
+		      ...
+		
+		  ------------------------------------------------------------------------------------
+		  
+		  
+		  async getUserinfo() {
+		    console.log('getting user info in getUserInfo()');
+		    try {
+		      let response = await fetch('https://xxxxx.auth0.com/userinfo', {
+			method: 'GET',
+			headers: {
+			  Authorization: 'Bearer ${this.state.token.accessToken}',
+			},
+		      });
+		      let responseJson = await response.json();
+		      if(responseJson !== null) {
+			console.log('Got user info: ' + responseJson.email);
+			this.setState({ component: Temp, isLoading: false, profile: responseJson});
+		      }
+		    } catch (error) {
+		      console.log('Error in retrieving userinfo from Auth0: ' + error.message);
+		      this.setState({ component: Login, isLoading: false});
+		    }
+		  }
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
