@@ -456,12 +456,10 @@ contacts.
 https://www.youtube.com/watch?v=X7t2pdJYHNI
 https://www.youtube.com/watch?v=uO8OreL0Ml4
 
-
-
-
-
-
 ```
+
+### fetch with authorization header
+
 
 ```
 
@@ -500,7 +498,6 @@ https://www.youtube.com/watch?v=uO8OreL0Ml4
 
 
 ```
-
 
 
 
