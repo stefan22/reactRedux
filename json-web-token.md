@@ -34,14 +34,15 @@
 		import widgetApp;
 
 		export default function setAuthorizationToken(token) {
-			if(token) {
-				   // if token, access default headers common and specify authorization header
-					widgetApp.defaults.headers.common['Authorization'] = `Bearer ${token}`;  //standard
-				      }
-				      else {
-					   delete widgetApp.defaults.headers.common['Authorization'];
-				      }
-				   }
+		    if(token) {
+			 // if token, access default headers common and specify authorization header
+			 	//standard
+				widgetApp.defaults.headers.common['Authorization'] = `Bearer ${token}`;  
+			    }
+			    else {
+				 delete widgetApp.defaults.headers.common['Authorization'];
+			    }
+		    }
 
 
 
@@ -98,39 +99,39 @@
 - to do that: need to decode token
 
 ```
-			import widgetApp from 'someWidget app';
-			import setAuthorizationToken from '...';
+		import widgetApp from 'someWidget app';
+		import setAuthorizationToken from '...';
 
-			// action
-			export function login(data) {
-				return dispatch => {
-				    return widgetApp.post('/api/auth', data).then(res => {
-					const token = res.data.token;
-					    localStorage.setItem('jwToken', token);
-					    setAuthorizationToken(token);
-					    // console.log(jwt.decode(token));  // error cannot resolve module 'net' 'dns'
-					    dispatch(setCurrentUser(jwt.decode(token)));
-			 	    });
-				 }
-			};
-
-
-
-			// error about dns, net handle from webpack.config
-
-			...
-			   resolve: {
-				   extensions: ['', '.js']
-			   },
-			   node: {
-				   net: 'empty',
-				   dns: 'dns'
-			   }
+		// action
+		export function login(data) {
+			return dispatch => {
+			    return widgetApp.post('/api/auth', data).then(res => {
+				const token = res.data.token;
+				    localStorage.setItem('jwToken', token);
+				    setAuthorizationToken(token);
+				    // console.log(jwt.decode(token));  // error cannot resolve module 'net' 'dns'
+				    dispatch(setCurrentUser(jwt.decode(token)));
+			    });
+			 }
+		};
 
 
-			   now in console yo can see Object
 
-			   {id: 1, username: 'someuser', iat: 134i5055}  // token decoded and ready to story in Redux store
+		// error about dns, net handle from webpack.config
+
+		...
+		   resolve: {
+			   extensions: ['', '.js']
+		   },
+		   node: {
+			   net: 'empty',
+			   dns: 'dns'
+		   }
+
+
+		   now in console yo can see Object
+
+		   {id: 1, username: 'someuser', iat: 134i5055}  // token decoded and ready to story in Redux store
 
 
 ```
@@ -156,40 +157,40 @@ Now we have this information and need to store it -  with a new Reducer
 
 
 ```
-		let response = await fetch('https://xxxxxxxxx.auth0.com/userinfo', {
-			method: 'GET',
-			headers: {
-			  'Accept': 'application/json',
-			  'Content-Type': 'application/json',
-			  Authorization: 'Bearer ' + this.state.token.accessToken,
-			},
-		      });
-		      let responseJson = await response.json();
-		      if(response !== null) {
-		      ...
-		
-		  ------------------------------------------------------------------------------------
-		  
-		  
-		  async getUserinfo() {
-		    console.log('getting user info in getUserInfo()');
-		    try {
-		      let response = await fetch('https://xxxxx.auth0.com/userinfo', {
-			method: 'GET',
-			headers: {
-			  Authorization: 'Bearer ${this.state.token.accessToken}',
-			},
-		      });
-		      let responseJson = await response.json();
-		      if(responseJson !== null) {
-			console.log('Got user info: ' + responseJson.email);
-			this.setState({ component: Temp, isLoading: false, profile: responseJson});
-		      }
-		    } catch (error) {
-		      console.log('Error in retrieving userinfo from Auth0: ' + error.message);
-		      this.setState({ component: Login, isLoading: false});
-		    }
-		  }
+	let response = await fetch('https://xxxxxxxxx.auth0.com/userinfo', {
+		method: 'GET',
+		headers: {
+		  'Accept': 'application/json',
+		  'Content-Type': 'application/json',
+		  Authorization: 'Bearer ' + this.state.token.accessToken,
+		},
+	      });
+	      let responseJson = await response.json();
+	      if(response !== null) {
+	      ...
+
+	  ------------------------------------------------------------------------------------
+
+
+	  async getUserinfo() {
+	    console.log('getting user info in getUserInfo()');
+	    try {
+	      let response = await fetch('https://xxxxx.auth0.com/userinfo', {
+		method: 'GET',
+		headers: {
+		  Authorization: 'Bearer ${this.state.token.accessToken}',
+		},
+	      });
+	      let responseJson = await response.json();
+	      if(responseJson !== null) {
+		console.log('Got user info: ' + responseJson.email);
+		this.setState({ component: Temp, isLoading: false, profile: responseJson});
+	      }
+	    } catch (error) {
+	      console.log('Error in retrieving userinfo from Auth0: ' + error.message);
+	      this.setState({ component: Login, isLoading: false});
+	    }
+	  }
 
 
 
@@ -265,29 +266,23 @@ Now we have this information and need to store it -  with a new Reducer
   you need to add a "provider" to check the query string. It's on the options.
 
 ```
-	public class URLTokenProvider : IOAuthBearerAuthenticationProvider
-    {
-        public Task RequestToken(OAuthRequestTokenContext context)
-        {
-            if (String.IsNullOrWhiteSpace(context.Token) && context.Request.QueryString.HasValue)
-            {
-                NameValueCollection parsedQuery = HttpUtility.ParseQueryString(context.Request.QueryString.Value);
-                context.Token = parsedQuery["access_token"];
-            }
+	public class URLTokenProvider : IOAuthBearerAuthenticationProvider {
+	    public Task RequestToken(OAuthRequestTokenContext context)  {
+	        if (String.IsNullOrWhiteSpace(context.Token) && context.Request.QueryString.HasValue) {
+		     NameValueCollection parsedQuery = HttpUtility.ParseQueryString(context.Request.QueryString.Value);
+		     context.Token = parsedQuery["access_token"];
+	        }
+	       	     return Task.FromResult(0);
+	    }
 
-            return Task.FromResult(0);
-        }
+	     public Task ApplyChallenge(OAuthChallengeContext context) {
+	         return Task.FromResult(0);
+	     }
 
-        public Task ApplyChallenge(OAuthChallengeContext context)
-        {
-            return Task.FromResult(0);
-        }
-
-        public Task ValidateIdentity(OAuthValidateIdentityContext context)
-        {
-            return Task.FromResult(0);
-        }
-    }
+	     public Task ValidateIdentity(OAuthValidateIdentityContext context)  {
+	         return Task.FromResult(0);
+	     }
+       }
 
 
 
@@ -302,7 +297,8 @@ Now we have this information and need to store it -  with a new Reducer
 	GET /books/:id
 	PUT /books/:id { shelf }
 	POST /search { query, maxResults }
-	whenever i am trying to use this API:"https://reactnd-books-api.udacity.com/" and hit the server the above message is being displayed. i just want o view the data in json form
+	whenever i am trying to use this API:"https://reactnd-books-api.udacity.com/" and hit the server the above 
+	message is being displayed. i just want o view the data in json form
 	how is that possible
 
 
