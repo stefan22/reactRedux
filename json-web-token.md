@@ -3,65 +3,63 @@
 - taking the Json Web token returned from server, save it in localStorage and we included in every Ajax request.
 - then we install store authenticated user details in Redux store so we can use it later.
 
-• saving it in local storage:
+  • saving it in local storage:
 
 ```
-			// Saving it to local Storage
+	// Saving it to local Storage
 	ex:
-			import widgetApp from 'someWidget app';
-			import setAuthorizationToken from '...';
+		import widgetApp from 'someWidget app';
+		import setAuthorizationToken from '...';
 
-			// action
-			export function login(data) {
-				return dispatch => {
-					return widgetApp.post('/api/auth', data).then(res => {
-						const token = res.data.token;
-						localStorage.setItem('jwToken', token);
-						setAuthorizationToken(token);
-					});
-				}
+		// action
+		export function login(data) {
+			return dispatch => {
+				return widgetApp.post('/api/auth', data).then(res => {
+					const token = res.data.token;
+					localStorage.setItem('jwToken', token);
+					setAuthorizationToken(token);
+				});
 			}
+		}
 
 
-			// Next need to include token with each Ajax request as Authorization header
+		// Next need to include token with each Ajax request as Authorization header
 
 
-			// function takes token, and needs to provide headers with every request.
-			// if have token, then we set default header to equal Bearer plus token
-			// if no token (false) then we want to delete this access defaults headers common authorization
+		// function takes token, and needs to provide headers with every request.
+		// if have token, then we set default header to equal Bearer plus token
+		// if no token (false) then we want to delete this access defaults headers common authorization
 
 
-				import widgetApp;
+		import widgetApp;
 
-				export default function setAuthorizationToken(token) {
-					if(token) {
-						// if token, access default headers common and specify authorization header
-						widgetApp.defaults.headers.common['Authorization'] = `Bearer ${token}`;  //standard
-					}
-					else {
-						delete widgetApp.defaults.headers.common['Authorization'];
-					}
-				}
-
-
-
+		export default function setAuthorizationToken(token) {
+			if(token) {
+				   // if token, access default headers common and specify authorization header
+					widgetApp.defaults.headers.common['Authorization'] = `Bearer ${token}`;  //standard
+				      }
+				      else {
+					   delete widgetApp.defaults.headers.common['Authorization'];
+				      }
+				   }
 
 
 
-// newtwork tab
-=> auth 
 
-		in Headers => you should have:
 
-					....
-					Accept-Encoding: gzip, deflate
-					Accept-Language: en-UK, en; q=0.8
-					..
-					Authorization: Bearer eyJhbGci0iJUzINizsR5C16IpXVCJ9sls...
-					...
-					Connection: keep-alive
-					Content-Length: 87
-					....
+
+	// newtwork tab
+	=> auth in Headers => you should have:
+
+			....
+			Accept-Encoding: gzip, deflate
+			Accept-Language: en-UK, en; q=0.8
+			..
+			Authorization: Bearer eyJhbGci0iJUzINizsR5C16IpXVCJ9sls...
+			...
+			Connection: keep-alive
+			Content-Length: 87
+			....
 
 
 
@@ -106,14 +104,14 @@
 			// action
 			export function login(data) {
 				return dispatch => {
-					return widgetApp.post('/api/auth', data).then(res => {
-						const token = res.data.token;
-						localStorage.setItem('jwToken', token);
-						setAuthorizationToken(token);
-						// console.log(jwt.decode(token));  // error cannot resolve module 'net' and 'dns'
-						dispatch(setCurrentUser(jwt.decode(token)));
-					});
-				}
+				    return widgetApp.post('/api/auth', data).then(res => {
+					const token = res.data.token;
+					    localStorage.setItem('jwToken', token);
+					    setAuthorizationToken(token);
+					    // console.log(jwt.decode(token));  // error cannot resolve module 'net' 'dns'
+					    dispatch(setCurrentUser(jwt.decode(token)));
+			 	    });
+				 }
 			};
 
 
@@ -121,18 +119,18 @@
 			// error about dns, net handle from webpack.config
 
 			...
-				resolve: {
-					extensions: ['', '.js']
-				},
-				node: {
-					net: 'empty',
-					dns: 'dns'
-				}
+			   resolve: {
+				   extensions: ['', '.js']
+			   },
+			   node: {
+				   net: 'empty',
+				   dns: 'dns'
+			   }
 
 
-				now in console yo can see Object
+			   now in console yo can see Object
 
-				{id: 1, username: 'someuser', iat: 134i5055}  // token decoded and ready to story in Redux store
+			   {id: 1, username: 'someuser', iat: 134i5055}  // token decoded and ready to story in Redux store
 
 
 ```
