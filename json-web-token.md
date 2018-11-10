@@ -99,39 +99,39 @@
 - to do that: need to decode token
 
 ```
-		import widgetApp from 'someWidget app';
-		import setAuthorizationToken from '...';
+	import widgetApp from 'someWidget app';
+	import setAuthorizationToken from '...';
 
-		// action
-		export function login(data) {
-			return dispatch => {
-			    return widgetApp.post('/api/auth', data).then(res => {
-				const token = res.data.token;
-				    localStorage.setItem('jwToken', token);
-				    setAuthorizationToken(token);
-				    // console.log(jwt.decode(token));  // error cannot resolve module 'net' 'dns'
-				    dispatch(setCurrentUser(jwt.decode(token)));
-			    });
-			 }
-		};
-
-
-
-		// error about dns, net handle from webpack.config
-
-		...
-		   resolve: {
-			   extensions: ['', '.js']
-		   },
-		   node: {
-			   net: 'empty',
-			   dns: 'dns'
-		   }
+	// action
+	export function login(data) {
+		return dispatch => {
+		    return widgetApp.post('/api/auth', data).then(res => {
+			const token = res.data.token;
+			    localStorage.setItem('jwToken', token);
+			    setAuthorizationToken(token);
+			    // console.log(jwt.decode(token));  // error cannot resolve module 'net' 'dns'
+			    dispatch(setCurrentUser(jwt.decode(token)));
+		    });
+		 }
+	};
 
 
-		   now in console yo can see Object
 
-		   {id: 1, username: 'someuser', iat: 134i5055}  // token decoded and ready to story in Redux store
+	// error about dns, net handle from webpack.config
+
+	...
+	   resolve: {
+		   extensions: ['', '.js']
+	   },
+	   node: {
+		   net: 'empty',
+		   dns: 'dns'
+	   }
+
+
+	   now in console yo can see Object
+
+	   {id: 1, username: 'someuser', iat: 134i5055}  // token decoded and ready to story in Redux store
 
 
 ```
