@@ -1,0 +1,262 @@
+
+    a,
+    article,
+    aside,
+    html,
+    body,
+    button,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    header,
+    html,
+    li,
+    ol,
+    p,
+    section,
+    small,
+    span,
+    u,
+    ul {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        background-color: #41444F;
+        font-size: 1em;
+        line-height: 1;
+
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        overflow-y: scroll;
+        font-family: 'museo-sans', Arial, sans-serif;
+    }
+
+    ul {
+        list-style: none
+    }
+
+    li {
+        display: list-item
+    }
+
+    .grid-4 {
+        width: 420px;
+        display: inline-flex;
+        flex-flow: column;
+        justify-content: end;
+        background-color: #41444F;
+        background-size: cover;
+        padding-top:1em;
+       
+    }
+
+    .widget-section {
+        overflow: hidden;
+        position: relative;
+        margin: 10px 0 10px 0
+    }
+
+    .widget-section h1 {
+        color: red;
+    }
+    
+
+    .widget-section .sub-evts {
+        margin-left:0px;
+        color: #9ccc65;
+        font-size: 1.1em;
+        margin-bottom: 5px;
+        margin:20px 0 5px 0;
+       
+    }
+
+    .widget-section>p {
+        margin-left: 10px;
+        color: #64b5f6;
+    }
+
+    h1.widget-title {
+        color: #eee;
+        text-align: center;
+        font-size: 1.25em;
+        margin-bottom: 15px;
+    }
+
+    .infolot {
+        margin: 10px;
+        position: relative
+    }
+
+    .infolot.topoflist h2 {
+        margin-top:0;
+    }
+
+    .infolot>a {
+        display: block;
+        right: 0;
+        position: absolute;
+        top: 23px;
+    }
+
+    .infolot>p {
+         color: #64b5f6;
+         margin-bottom:10px;
+    }
+
+    .infolot ul {
+        clear: both;
+        overflow: hidden
+    }
+
+    .infolot ul li {
+        height: 35px;
+        position: relative;
+        padding: 2px 5px;
+        border-top-width: 1px;
+        border-color: #252525;
+        border-style: solid;
+        cursor: pointer
+    }
+
+    .infolot ul li:last-child {
+        border-bottom-width: 1px
+    }
+
+    .infolot ul li a {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        text-decoration: none;
+        color: #f5f5f5;
+        font-size: .9em;
+    }
+
+    .infolot ul li .state {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        padding: 1px 7px;
+        margin: 0 10px 0 0;
+        font-size: .9em;
+    }
+
+    .state span {
+        color: #64b5f6;
+    }
+
+    .infolot ul li:hover {
+        background-color: #222
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        content: '.';
+        display: block;
+        overflow: hidden;
+        visibility: hidden;
+        font-size: 0;
+        line-height: 0;
+        width: 0;
+        height: 0
+    }
+
+    .clearfix:after {
+        clear: both
+    }
+
+    a {
+        text-decoration: none;
+        color: #9ccc65;
+        font-weight: bold
+    }
+
+
+
+
+
+
+    /* options html */
+
+#extension-body {
+   height: 100%;
+    min-height: 800px;
+    padding:10px;
+    background-color: #fdfdfd;
+}  
+
+#ext-options {
+    display: flex;
+    justify-content: flex-end;
+}  
+
+
+#ext-options a {
+    color: #e64a19;
+    text-decoration: underline;
+    font-size: .9em;
+    font-variant-caps: all-petite-caps;
+    margin-right: 12px;
+    cursor: pointer;
+   
+}
+
+.page {
+    margin-bottom: 1em;
+
+}
+
+
+#back-button {
+    display: inline-block;
+    width: 80px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    background: #2e7d00;
+    color: #fff;
+    font-weight: bold;
+    font-size: .9em;
+    box-shadow: 0px 1px 1px 0px #C5E1A5;
+    border-right: 1px solid #C8E6C9;
+}
+
+#back-button a {
+    color:white;
+}
+
+.options-list {
+    margin:10px 0;
+}
+
+.options-list li {
+    list-style-type: circle;
+    text-decoration: underline;
+    line-height: 22px;
+}
+
+hr {
+    margin-top: 1px;
+    display: ;
+    background: #2b632b;
+    height: 2px;
+}
+
+.widget-options {
+
+}
+
+
+
+
+
+
+
+   

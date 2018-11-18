@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+    a,
+    article,
+    aside,
+    body,
+    button,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    header,
+    hr,
+    html,
+    li,
+    ol,
+    p,
+    section,
+    small,
+    span,
+    u,
+    ul {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 100%
+    }
+
+    html,
+    body {
+        height: 100%
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        overflow-y: scroll;
+        font-family: 'museo-sans', Arial, sans-serif;
+    }
+
+    ul {
+        list-style: none
+    }
+
+    li {
+        display: list-item
+    }
+
+    .grid-4 {
+        width: 320px;
+        display: inline-flex;
+        flex-flow: column;
+        justify-content: end;
+        background-color: #41444F;
+        background-size: cover;
+        margin-top: 1em;
+    }
+
+    .widget-section {
+        overflow: hidden;
+        position: relative;
+        margin: 10px 0 10px 0
+    }
+
+    .widget-section h1 {
+        color: red;
+    }
+
+    .widget-section .sub-evts {
+        margin-left: 10px;
+        color: #9ccc65;
+        font-size: 1.1em;
+        margin-bottom: 5px;
+    }
+
+    .widget-section>p {
+        margin-left: 10px;
+        color: #64b5f6;
+    }
+
+    h1.widget-title {
+        color: #eee;
+        text-align: center;
+        font-size: 1.25em;
+        margin-bottom: 15px;
+    }
+
+    .infolot {
+        margin: 10px;
+        position: relative
+    }
+
+    .infolot>a {
+        display: block;
+        right: 0;
+        position: absolute;
+        top: -27px;
+    }
+
+    .infolot ul {
+        clear: both;
+        overflow: hidden
+    }
+
+    .infolot ul li {
+        height: 35px;
+        position: relative;
+        padding: 2px 5px;
+        border-top-width: 1px;
+        border-color: #252525;
+        border-style: solid;
+        cursor: pointer
+    }
+
+    .infolot ul li:last-child {
+        border-bottom-width: 1px
+    }
+
+    .infolot ul li a {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        text-decoration: none;
+        color: #f5f5f5;
+        font-size: .9em;
+    }
+
+    .infolot ul li .state {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        padding: 1px 7px;
+        margin: 0 10px 0 0;
+        font-size: .9em;
+    }
+
+    .state span {
+        color: #64b5f6;
+    }
+
+    .infolot ul li:hover {
+        background-color: #222
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        content: '.';
+        display: block;
+        overflow: hidden;
+        visibility: hidden;
+        font-size: 0;
+        line-height: 0;
+        width: 0;
+        height: 0
+    }
+
+    .clearfix:after {
+        clear: both
+    }
+
+    a {
+        text-decoration: none;
+        color: #9ccc65;
+        font-weight: bold
+    }
+    </style>
+</head>
+
+<body>
+    <div style="width:80%; display: inline-block;">
+        &nbsp;
+    </div>
+    <div class="grid-4" style="display: inline-block;">
+        <section class="widget-section">
+            <h1 class="widget-title">Widgets Chrome Extension</h1>
+            <h2 class="sub-evts">Custom Events</h2>
+            <p>
+                Avail at Page load
+            </p>
+            <section class="infolot">
+                <a href="javascript:">Current state</a>
+                <ul class="box">
+                    <li>
+                        <a href="javascript:">DOMContentLoaded</a>
+                        <div class="state"><span>True</span></div>
+                    </li>
+                    <li>
+                        <a href="javascript:">fdjBetslipGamingWidget</a>
+                        <div class="state"><span>Initialised</span></div>
+                    </li>
+                    <li id="livecasino" class="active">
+                        <a href="javascript:">LocalStorage token</a>
+                        <div class="state"><span>24fdgk2453</span></div>
+                    </li>
+                    <li>
+                        <a href="javascript:">fdjNavigationWidget</a>
+                        <div class="state"><span>Initialised</span></div>
+                    </li>
+                    <li>
+                        <a href="javascript:">fdjTennisGamingWidget</a>
+                        <div class="state"><span>Initialised</span></div>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section class="widget-section">
+            <h2 class="sub-evts">Component Lifecycle</h2>
+            <p>
+                Click on component to reveal its props
+            </p>
+            <section class="infolot">
+                <ul class="box">
+                    <li>
+                        <a href="javascript:">ComponentDidMount</a>
+                        <div class="state"><span>true</span></div>
+                    </li>
+                    <li>
+                        <a href="javascript:">ComponentDidUnmount</a>
+                        <div class="state"><span>false</span></div>
+                    </li>
+                    <li>
+                        <a href="javascript:">State props avail</a>
+                        <div class="state"><span>yes</span></div>
+                    </li>
+                    <li>
+                        <a href="javascript:">State props avail</a>
+                        <div class="state"><span>yes</span></div>
+                    </li>
+                    <li>
+                        <a href="javascript:">State props avail</a>
+                        <div class="state"><span>yes</span></div>
+                    </li>
+                </ul>
+            </section>
+            <section class="widget-section">
+                <h2 class="sub-evts">Click Events</h2>
+                <p>
+                    Click on elem to reveal its props
+                </p>
+                <section class="infolot">
+                    <ul class="box">
+                        <li>
+                            <a href="javascript:">DOM element</a>
+                            <div class="state"><span>undefined</span></div>
+                        </li>
+                        <li>
+                            <a href="javascript:">DOM element</a>
+                            <div class="state"><span>undefined</span></div>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+    </div>
+</body>
+
+</html>
