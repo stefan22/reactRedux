@@ -1,0 +1,17 @@
+/*
+clean-up
+========
+UI files with dummy date only, chrome extension src files in local folder/mac and private repository Gitlabs acct.
+*/
+
+main.js
+configuration.js
+events.js
+reload
+API.js
+googleSearch.js
+calc.js
+head.js
+.DS_Store
+chromeExtensionLive.js
+comments.js
